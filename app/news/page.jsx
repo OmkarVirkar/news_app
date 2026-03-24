@@ -1,19 +1,25 @@
 import Link from "next/link";
+import { DUMMY_NEWS as newsList } from "@/assets/dummy-news";
+import Image from "next/image";
 
 export default function Page() {
   return (
     <>
       <h1>News Page</h1>
       <ul className="news-list">
-        <li>
-          <Link href="/news/nextjs-is-awesome">Next.js is awesome</Link>
-        </li>
-        <li>
-          <Link href="/news/nextjs-is-great">Next.js is great</Link>
-        </li>
-        <li>
-          <Link href="/news/nextjs-is-the-best">Next.js is the best</Link>
-        </li>
+        {newsList.map((newsItem) => (
+          <li key={newsItem.id}>
+            <Link href={`/news/${newsItem.slug}`}>
+              <Image
+                src={`/images/news/${newsItem.image}`}
+                alt={newsItem.title}
+                width={200}
+                height={200}
+              />
+              <span>{newsItem.title}</span>
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );
