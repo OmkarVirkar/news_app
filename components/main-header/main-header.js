@@ -1,3 +1,4 @@
+import NewsPagesLink from "./news-pages-links";
 import Link from "next/link";
 
 export default function MainHeader() {
@@ -9,7 +10,10 @@ export default function MainHeader() {
       <nav>
         <ul>
           <li>
-            <Link href="/news">News</Link>
+            <NewsPagesLink href="/news">News</NewsPagesLink>
+          </li>
+          <li>
+            <NewsPagesLink href="/archive">Archive</NewsPagesLink>
           </li>
         </ul>
       </nav>
